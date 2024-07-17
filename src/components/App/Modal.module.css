@@ -1,0 +1,10 @@
+.descriptionModal {
+    max-width: 1080px;
+    padding: 0 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0, .8);
+}

@@ -1,0 +1,37 @@
+.headerSearchBar {
+    background-color: rgb(50, 50, 253);
+    padding: 8px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.formSearchBar {
+    margin: 0 auto;
+}
+
+.formSearchBar>input {
+    font-size: 16px;
+    padding: 6px 0 6px 32px;
+    outline: transparent;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-right: 12px;
+    position: relative;
+}
+
+.formSearchBar>button {
+    border: none;
+    background-color: lightgray;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 7px 6px;
+}
+
+.iconSearchBar {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 35px;
+    z-index: 2;
+    margin-left: 4px;
+}
