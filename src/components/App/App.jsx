@@ -32,7 +32,7 @@ const customStyles = {
     };
 
 
-//Modal.setAppElement('#root')
+Modal.setAppElement('#root')
 
 const App = () => {
    
@@ -51,8 +51,13 @@ const App = () => {
 
     const [selectedImage, setSelectedImage] = useState(null)
 
+    const [modalIsOpen, setOpenModal] = useState(false)
+
     const handleClickOnImage = (image) => {
-        setSelectedImage(image)
+        if (!selectedImage) {
+            setSelectedImage(image)
+            setOpenModal(true)
+        }
     }
 
     const updateQuery = (text) => {
@@ -97,12 +102,8 @@ const App = () => {
 
     const closeModal = () => {
         setSelectedImage(null)
+        setOpenModal(false)
     }
-
-    useEffect(() => {
-        Modal.setAppElement(document.getElementById('root'));
-    }, []);
-
 
     return (
         <>
@@ -111,8 +112,8 @@ const App = () => {
             {images.length > 0 && <ImageGallery images={images} openModal={handleClickOnImage} />}
             {showLoader && <Loader />}
             {showBtn && <LoadMoreBtn onUpdate={updatePage} />}
-            {selectedImage && <Modal
-                isOpen={Boolean(selectedImage)}
+            {modalIsOpen && <Modal
+                isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 style={customStyles}
             >
