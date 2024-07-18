@@ -11,12 +11,13 @@
 
 .formSearchBar>input {
     font-size: 16px;
-    padding: 6px 0 6px 32px;
+    padding: 6px 6px 6px 32px;
     outline: transparent;
     border: 1px solid gray;
     border-radius: 5px;
     margin-right: 12px;
     position: relative;
+    width: 232px;
 }
 
 .formSearchBar>button {
@@ -25,6 +26,7 @@
     border-radius: 10px;
     font-size: 16px;
     padding: 7px 6px;
+    cursor: pointer;
 }
 
 .iconSearchBar {
@@ -34,4 +36,5 @@
     top: 35px;
     z-index: 2;
     margin-left: 4px;
+    cursor: pointer;
 }
