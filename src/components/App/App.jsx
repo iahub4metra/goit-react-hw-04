@@ -112,16 +112,14 @@ const App = () => {
             {images.length > 0 && <ImageGallery images={images} openModal={handleClickOnImage} />}
             {showLoader && <Loader />}
             {showBtn && <LoadMoreBtn onUpdate={updatePage} />}
-    
-                <Modal
-                    isOpen={modalIsOpen}
-                    onRequestClose={closeModal}
-                    style={customStyles}
-                >
-                    <img src={selectedImage?.urls?.regular} alt={selectedImage?.alt_description} />
-                    <h3 className={cssM.descriptionModal}>{selectedImage?.description}</h3>
-                </Modal>
-        
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                style={customStyles}
+            >
+                <img src={selectedImage?.urls?.regular} alt={selectedImage?.alt_description} />
+                <h3 className={cssM.descriptionModal}>{selectedImage?.description}</h3>
+            </Modal>
         </>
      );
 }
