@@ -20,7 +20,7 @@
     width: 232px;
 }
 
-.formSearchBar>button {
+.btnSumbitForm {
     border: none;
     background-color: lightgray;
     border-radius: 10px;
@@ -29,12 +29,19 @@
     cursor: pointer;
 }
 
-.iconSearchBar {
+.btnIconSubmit {
     position: absolute;
-    width: 24px;
-    height: 24px;
     top: 35px;
     z-index: 2;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+.iconSearchBar {
+
+    width: 24px;
+    height: 24px;
     margin-left: 4px;
     cursor: pointer;
 }

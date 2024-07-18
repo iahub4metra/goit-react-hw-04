@@ -5,8 +5,7 @@ import ImageGallery from "../ImageGallery/ImageGallery";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn.jsx"
 import Loader from "../Loader/Loader.jsx"
 import ErrorMessage from "../ErrorMessage/ErrorMessage.jsx";
-import Modal from "react-modal"
-import cssM from "./Modal.module.css"
+import ImageModal from "../ImageModal/ImageModal.jsx";
 
 const customStyles = {
         overlay: {
@@ -30,9 +29,6 @@ const customStyles = {
         },
         
     };
-
-
-Modal.setAppElement('#root')
 
 const App = () => {
    
@@ -112,14 +108,12 @@ const App = () => {
             {images.length > 0 && <ImageGallery images={images} openModal={handleClickOnImage} />}
             {showLoader && <Loader />}
             {showBtn && <LoadMoreBtn onUpdate={updatePage} />}
-            <Modal
-                isOpen={modalIsOpen}
-                onRequestClose={closeModal}
-                style={customStyles}
-            >
-                <img src={selectedImage?.urls?.regular} alt={selectedImage?.alt_description} />
-                <h3 className={cssM.descriptionModal}>{selectedImage?.description}</h3>
-            </Modal>
+            <ImageModal
+                modalIsOpen={modalIsOpen}
+                closeModal={closeModal}
+                customStyles={customStyles}
+                selectedImage={selectedImage}
+            />
         </>
      );
 }
