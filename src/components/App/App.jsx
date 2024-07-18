@@ -84,7 +84,7 @@ const App = () => {
                     return [...prevImages, ...uniqueImages];
                 });
             }
-            setShowBtn(data.total_pages && data.total_pages !== page)
+            setShowBtn(Boolean(data.total_pages) && Boolean(data.total_pages !== page))
             setShowErrorMsg(fetchedImages.length === 0);
         } catch (error) {
             setShowErrorMsg(true)
@@ -112,14 +112,16 @@ const App = () => {
             {images.length > 0 && <ImageGallery images={images} openModal={handleClickOnImage} />}
             {showLoader && <Loader />}
             {showBtn && <LoadMoreBtn onUpdate={updatePage} />}
-            {modalIsOpen && <Modal
-                isOpen={modalIsOpen}
-                onRequestClose={closeModal}
-                style={customStyles}
-            >
-                <img src={selectedImage.urls.regular} alt={selectedImage.alt_description} />
-                <h3 className={cssM.descriptionModal}>{selectedImage.description}</h3>
-            </Modal>}
+    
+                <Modal
+                    isOpen={modalIsOpen}
+                    onRequestClose={closeModal}
+                    style={customStyles}
+                >
+                    <img src={selectedImage?.urls?.regular} alt={selectedImage?.alt_description} />
+                    <h3 className={cssM.descriptionModal}>{selectedImage?.description}</h3>
+                </Modal>
+        
         </>
      );
 }
